@@ -11,3 +11,12 @@ He is using this space as a repository for various projects.
 * API for Auto Data?
 * Macro-Econ Model for UW Cycle?
 * Use CAS Chain Ladder Package
+
+## Want to Demonstrate Skills in the Following Areas:
+
+* Data Gathering, Cleansing, and Manipulation
+* Building Models
+* Reporting
+* Automation
+* Code Documentation
+* Interactive Plots
