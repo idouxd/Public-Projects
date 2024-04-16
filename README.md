@@ -20,3 +20,6 @@ He is using this space as a repository for various projects.
 * Automation
 * Code Documentation
 * Interactive Plots
+
+
+If you were to hire me right now, where best would you utilize my skillset?
