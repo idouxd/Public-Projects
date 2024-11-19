@@ -4,6 +4,8 @@ from scipy.optimize import dual_annealing
 
 def assign_factors(df, factors):
     '''
+    For a given set of factors, map those factors according to the rules below. 
+
     Parameters:
         df (pd.DataFrame): input dataframe
         factors (tuple): a tuple of 6 numeric factors (a,b,c,d,e,f)
@@ -35,6 +37,8 @@ def assign_factors(df, factors):
 
 def calculate_loss(df):
     '''
+    For a given set of factors (a,b,c,d,e,f) we calculate a weighted gini
+
     Parameters:
         df (pd.DataFrame): dataframe containing car_age_freq_factor & drv_age_freq_factor
 
@@ -51,30 +55,33 @@ def calculate_loss(df):
 
     #Gini calculation
     sorted_df = adjusted_df.sort_values(by='rebalanced_car_and_drv_freq', ascending=True).reset_index(drop=True)
-    sorted_values = sorted_df['rebalanced_car_and_drv_freq'].values
-    sorted_weights = sorted_df['Exposure'].values
+    sorted_df['cumulative_weight'] = sorted_df['Exposure'].cumsum()
+    sorted_df['cumulative_value'] = (sorted_df['rebalanced_car_and_drv_freq'] * sorted_df['Exposure']).cumsum()
+    
+    # Total weight and total weighted value
+    total_weight = sorted_df['Exposure'].sum()
+    total_value = sorted_df['cumulative_value'].iloc[-1]
 
-    cum_weights = np.cumsum(sorted_weights)
-    total_weight = cum_weights[-1]
-    weighted_values = sorted_values * sorted_weights
-    cum_weighted_values = np.cumsum(weighted_values)
-    total_weighted_value = cum_weighted_values[-1]
-    
-    # Gini calculation
-    weighted_gini_coeff = (
-        (cum_weights / total_weight) * cum_weighted_values
-    ).sum() / (total_weight * total_weighted_value)
-    
-    return 1 - 2 * weighted_gini_coeff
+    # Gini formula calculation
+    gini = (2 * sorted_df['cumulative_weight'].dot(sorted_df['cumulative_value']) / (total_weight * total_value)) - (total_weight + 1) / total_weight
+
+    return gini
 
 def solve_factors(df, lower_limit, upper_limit):
     '''
+    Optimizes factors (a, b, c, d, e, f) for the assign_factors function to minimize loss.
+    
     Parameters:
         df (pd.DataFrame): Input DataFrame
+        lower_limit (tuple):
+        upper_limit (tuple):
 
+    Returns:
+        OptimizeResult: Result of the optimization process.
     '''
     def objective_function(factors):
-        adjusted_df = assign_factors(df, factors)
+        factors_tuple = tuple(factors)
+        adjusted_df = assign_factors(df, factors_tuple)
         return calculate_loss(adjusted_df)
     
     bounds = list(zip(lower_limit, upper_limit))
@@ -86,6 +93,8 @@ full_df = pd.read_csv('freMTPL2freq.csv')
 df = full_df.sample(frac=.8).reset_index(drop=True)
 df['freq'] = df['ClaimNb'] / df['Exposure']
 lower_limit = (0.5,0.5,0.5,0.5,0.5,0.5)
-upper_limit = (3,3,3,3,3,3)
+upper_limit = (3.0,3.0,3.0,3.0,3.0,3.0)
 answer = solve_factors(df, lower_limit, upper_limit)
-print(answer)
+
+print("Optimal Factors:", answer.x)
+print("Minimum Loss:", answer.fun)
