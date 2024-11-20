@@ -47,23 +47,22 @@ def calculate_loss(df):
     '''
     #Offbalance calc freq to actual freq
     avg_freq = df['ClaimNb'].sum()/df['Exposure'].sum()
-    adjusted_df = df.copy()
+    adjusted_df = df.copy()[['Exposure','freq','car_age_freq_factor','drv_age_freq_factor']]
     adjusted_df['car_and_drv_freq'] = adjusted_df['car_age_freq_factor']*adjusted_df['drv_age_freq_factor']
     obs_freq = (adjusted_df['car_and_drv_freq']*adjusted_df['Exposure']).sum()/adjusted_df['Exposure'].sum()
     offbalance = avg_freq/obs_freq
     adjusted_df['rebalanced_car_and_drv_freq'] = offbalance*adjusted_df['car_and_drv_freq']
 
     #Gini calculation
-    sorted_df = adjusted_df.sort_values(by='rebalanced_car_and_drv_freq', ascending=True).reset_index(drop=True)
-    sorted_df['cumulative_weight'] = sorted_df['Exposure'].cumsum()
-    sorted_df['cumulative_value'] = (sorted_df['rebalanced_car_and_drv_freq'] * sorted_df['Exposure']).cumsum()
-    
-    # Total weight and total weighted value
-    total_weight = sorted_df['Exposure'].sum()
-    total_value = sorted_df['cumulative_value'].iloc[-1]
-
-    # Gini formula calculation
-    gini = (2 * sorted_df['cumulative_weight'].dot(sorted_df['cumulative_value']) / (total_weight * total_value)) - (total_weight + 1) / total_weight
+    x = np.asarray(adjusted_df['rebalanced_car_and_drv_freq'])
+    w = np.asarray(adjusted_df['Exposure'])
+    sorted_indices = np.argsort(x)
+    sorted_x = x[sorted_indices]
+    sorted_w = w[sorted_indices]
+    # Force float dtype to avoid overflows
+    cumw = np.cumsum(sorted_w, dtype=float)
+    cumxw = np.cumsum(sorted_x * sorted_w, dtype=float)
+    gini = (np.sum(cumxw[1:] * cumw[:-1] - cumxw[:-1] * cumw[1:]) / (cumxw[-1] * cumw[-1]))
 
     return gini
 
@@ -90,11 +89,12 @@ def solve_factors(df, lower_limit, upper_limit):
     return result
 
 full_df = pd.read_csv('freMTPL2freq.csv')
+
 df = full_df.sample(frac=.8).reset_index(drop=True)
 df['freq'] = df['ClaimNb'] / df['Exposure']
 lower_limit = (0.5,0.5,0.5,0.5,0.5,0.5)
 upper_limit = (3.0,3.0,3.0,3.0,3.0,3.0)
 answer = solve_factors(df, lower_limit, upper_limit)
 
-print("Optimal Factors:", answer.x)
-print("Minimum Loss:", answer.fun)
+print("Optimal Factors:", [round(value, 4) for value in answer.x])
+print("Minimum Loss:", round(answer.fun,4))
