@@ -72,8 +72,8 @@ def solve_factors(df, lower_limit, upper_limit):
     
     Parameters:
         df (pd.DataFrame): Input DataFrame
-        lower_limit (tuple):
-        upper_limit (tuple):
+        lower_limit (tuple): tuple of lower bound of factors
+        upper_limit (tuple): tuple of higher bound of factors
 
     Returns:
         OptimizeResult: Result of the optimization process.
