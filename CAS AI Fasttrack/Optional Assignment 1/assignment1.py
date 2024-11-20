@@ -64,7 +64,7 @@ def calculate_loss(df):
     cumxw = np.cumsum(sorted_x * sorted_w, dtype=float)
     gini = (np.sum(cumxw[1:] * cumw[:-1] - cumxw[:-1] * cumw[1:]) / (cumxw[-1] * cumw[-1]))
 
-    return gini
+    return -1*gini
 
 def solve_factors(df, lower_limit, upper_limit):
     '''
