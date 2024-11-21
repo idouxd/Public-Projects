@@ -1,6 +1,10 @@
 import pandas as pd
 import numpy as np
 from scipy.optimize import dual_annealing
+from scipy.optimize import basinhopping
+from skopt import gp_minimize
+from skopt.space import Real
+
 
 def assign_factors(df, factors):
     '''
@@ -66,7 +70,7 @@ def calculate_loss(df):
 
     return -1*gini
 
-def solve_factors(df, lower_limit, upper_limit):
+def solve_factors(df, lower_limit, upper_limit, method='da'):
     '''
     Optimizes factors (a, b, c, d, e, f) for the assign_factors function to minimize loss.
     
@@ -74,6 +78,7 @@ def solve_factors(df, lower_limit, upper_limit):
         df (pd.DataFrame): Input DataFrame
         lower_limit (tuple): tuple of lower bound of factors
         upper_limit (tuple): tuple of higher bound of factors
+        method (string): chosen method (dual annealing = 'da', basin hopping = 'bh', or bayesian optimization = 'bo')
 
     Returns:
         OptimizeResult: Result of the optimization process.
@@ -84,7 +89,15 @@ def solve_factors(df, lower_limit, upper_limit):
         return calculate_loss(adjusted_df)
     
     bounds = list(zip(lower_limit, upper_limit))
-    result = dual_annealing(objective_function, bounds, maxfun=999)
+    if method == 'da':
+        result = dual_annealing(objective_function, bounds, maxfun=999)
+    elif method == 'bh':
+        result = basinhopping(objective_function,x0=np.random.uniform(lower_limit, upper_limit), niter=999, T=1.0, stepsize=0.1)
+    elif method == 'bo':
+        dimensions = [Real(low, high) for low, high in zip(lower_limit, upper_limit)]
+        result = gp_minimize(objective_function, dimensions, n_calls=999)
+    else:
+        raise ValueError('Wrong Method')
 
     return result
 
@@ -94,7 +107,18 @@ df = full_df.sample(frac=.8).reset_index(drop=True)
 df['freq'] = df['ClaimNb'] / df['Exposure']
 lower_limit = (0.5,0.5,0.5,0.5,0.5,0.5)
 upper_limit = (3.0,3.0,3.0,3.0,3.0,3.0)
-answer = solve_factors(df, lower_limit, upper_limit)
+# answer = solve_factors(df, lower_limit, upper_limit, 'da')
 
-print("Optimal Factors:", [round(value, 4) for value in answer.x])
-print("Minimum Loss:", round(answer.fun,4))
+# print("Dual Annealing Optimal Factors:", [round(value, 4) for value in answer.x])
+# print("Dual Annealing Maximum Gini:", -1*round(answer.fun,4))
+
+# answer = solve_factors(df, lower_limit, upper_limit, 'bh')
+
+# print("Basin Hopping Optimal Factors:", [round(value, 4) for value in answer.x])
+# print("Basin Hopping Maximum Gini:", -1*round(answer.fun,4))
+
+answer = solve_factors(df, lower_limit, upper_limit, 'bo')
+
+print("Bayesian Optimization Optimal Factors:", [round(value, 4) for value in answer.x])
+print("Bayesian Optimization Maximum Gini:", -1*round(answer.fun,4))
+
