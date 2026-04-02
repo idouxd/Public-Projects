@@ -1,0 +1,98 @@
+[
+  {
+    "white": "caruana",
+    "black": "nakamura",
+    "result": 1.0,
+    "round": 1
+  },
+  {
+    "white": "pragg",
+    "black": "giri",
+    "result": 1.0,
+    "round": 1
+  },
+  {
+    "white": "sindarov",
+    "black": "esipenko",
+    "result": 1.0,
+    "round": 1
+  },
+  {
+    "white": "bluebaum",
+    "black": "weiyi",
+    "result": 0.5,
+    "round": 1
+  },
+  {
+    "white": "caruana",
+    "black": "esipenko",
+    "result": 0.5,
+    "round": 2
+  },
+  {
+    "white": "pragg",
+    "black": "weiyi",
+    "result": 0.5,
+    "round": 2
+  },
+  {
+    "white": "sindarov",
+    "black": "giri",
+    "result": 0.5,
+    "round": 2
+  },
+  {
+    "white": "bluebaum",
+    "black": "nakamura",
+    "result": 0.5,
+    "round": 2
+  },
+  {
+    "white": "caruana",
+    "black": "weiyi",
+    "result": 1.0,
+    "round": 3
+  },
+  {
+    "white": "pragg",
+    "black": "sindarov",
+    "result": 0.0,
+    "round": 3
+  },
+  {
+    "white": "nakamura",
+    "black": "giri",
+    "result": 0.5,
+    "round": 3
+  },
+  {
+    "white": "bluebaum",
+    "black": "esipenko",
+    "result": 0.5,
+    "round": 3
+  },
+  {
+    "white": "sindarov",
+    "black": "caruana",
+    "result": 1.0,
+    "round": 4
+  },
+  {
+    "white": "giri",
+    "black": "esipenko",
+    "result": 1.0,
+    "round": 4
+  },
+  {
+    "white": "weiyi",
+    "black": "nakamura",
+    "result": 0.5,
+    "round": 4
+  },
+  {
+    "white": "bluebaum",
+    "black": "pragg",
+    "result": 0.5,
+    "round": 4
+  }
+]
