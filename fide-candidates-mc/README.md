@@ -1,3 +1,15 @@
+This code base executes a Monte Carlo simulation of the 2026 FIDE Candidates tournament.
+
+After each round it calculates a win probability for each candidate based on the remaining schedule and their FIDE ELO. 
+
+See the figures win_probability_open.png & win_probability_womens.png
+
+Full disclosure: this was almost entirely written by Claude Code. 
+
+
+
+
+
 To generate new figures, run the following commands after adding new results:
 
 PYTHONUTF8=1 /c/Users/idoux/anaconda3/python.exe plot_probabilities.py open --save
