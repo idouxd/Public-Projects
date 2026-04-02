@@ -95,7 +95,7 @@ def solve_factors(df, lower_limit, upper_limit, method='da'):
         result = basinhopping(objective_function,x0=np.random.uniform(lower_limit, upper_limit), niter=999, T=1.0, stepsize=0.1)
     elif method == 'bo':
         dimensions = [Real(low, high) for low, high in zip(lower_limit, upper_limit)]
-        result = gp_minimize(objective_function, dimensions, n_calls=999)
+        result = gp_minimize(objective_function, dimensions, n_calls=100)
     else:
         raise ValueError('Wrong Method')
 
