@@ -1,21 +1,122 @@
 [
-  {"white": "goryachkina", "black": "lagno",       "result": 0.5, "round": 1},
-  {"white": "vaishali",    "black": "assaubayeva", "result": 0.5, "round": 1},
-  {"white": "zhujiner",    "black": "tanzhongyi",  "result": 0.5, "round": 1},
-  {"white": "muzychuk",    "black": "deshmukh",    "result": 0.5, "round": 1},
-
-  {"white": "zhujiner",    "black": "lagno",       "result": 0.5, "round": 2},
-  {"white": "vaishali",    "black": "deshmukh",    "result": 0.5, "round": 2},
-  {"white": "tanzhongyi",  "black": "muzychuk",    "result": 0.5, "round": 2},
-  {"white": "assaubayeva", "black": "goryachkina", "result": 0.5, "round": 2},
-
-  {"white": "assaubayeva", "black": "zhujiner",    "result": 1.0, "round": 3},
-  {"white": "tanzhongyi",  "black": "lagno",       "result": 0.0, "round": 3},
-  {"white": "goryachkina", "black": "deshmukh",    "result": 0.5, "round": 3},
-  {"white": "vaishali",    "black": "muzychuk",    "result": 0.5, "round": 3},
-
-  {"white": "muzychuk",    "black": "lagno",       "result": 1.0, "round": 4},
-  {"white": "zhujiner",    "black": "deshmukh",    "result": 1.0, "round": 4},
-  {"white": "vaishali",    "black": "goryachkina", "result": 0.5, "round": 4},
-  {"white": "assaubayeva", "black": "tanzhongyi",  "result": 0.5, "round": 4}
+  {
+    "white": "goryachkina",
+    "black": "lagno",
+    "result": 0.5,
+    "round": 1
+  },
+  {
+    "white": "vaishali",
+    "black": "assaubayeva",
+    "result": 0.5,
+    "round": 1
+  },
+  {
+    "white": "zhujiner",
+    "black": "tanzhongyi",
+    "result": 0.5,
+    "round": 1
+  },
+  {
+    "white": "muzychuk",
+    "black": "deshmukh",
+    "result": 0.5,
+    "round": 1
+  },
+  {
+    "white": "zhujiner",
+    "black": "lagno",
+    "result": 0.5,
+    "round": 2
+  },
+  {
+    "white": "vaishali",
+    "black": "deshmukh",
+    "result": 0.5,
+    "round": 2
+  },
+  {
+    "white": "tanzhongyi",
+    "black": "muzychuk",
+    "result": 0.5,
+    "round": 2
+  },
+  {
+    "white": "assaubayeva",
+    "black": "goryachkina",
+    "result": 0.5,
+    "round": 2
+  },
+  {
+    "white": "assaubayeva",
+    "black": "zhujiner",
+    "result": 1.0,
+    "round": 3
+  },
+  {
+    "white": "tanzhongyi",
+    "black": "lagno",
+    "result": 0.0,
+    "round": 3
+  },
+  {
+    "white": "goryachkina",
+    "black": "deshmukh",
+    "result": 0.5,
+    "round": 3
+  },
+  {
+    "white": "vaishali",
+    "black": "muzychuk",
+    "result": 0.5,
+    "round": 3
+  },
+  {
+    "white": "muzychuk",
+    "black": "lagno",
+    "result": 1.0,
+    "round": 4
+  },
+  {
+    "white": "zhujiner",
+    "black": "deshmukh",
+    "result": 1.0,
+    "round": 4
+  },
+  {
+    "white": "vaishali",
+    "black": "goryachkina",
+    "result": 0.5,
+    "round": 4
+  },
+  {
+    "white": "assaubayeva",
+    "black": "tanzhongyi",
+    "result": 0.5,
+    "round": 4
+  },
+  {
+    "white": "goryachkina",
+    "black": "muzychuk",
+    "result": 0.5,
+    "round": 5
+  },
+  {
+    "white": "lagno",
+    "black": "assaubayeva",
+    "result": 1.0,
+    "round": 5
+  },
+  {
+    "white": "zhujiner",
+    "black": "vaishali",
+    "result": 1.0,
+    "round": 5
+  },
+  {
+    "white": "tanzhongyi",
+    "black": "deshmukh",
+    "result": 0.5,
+    "round": 5
+  }
 ]
