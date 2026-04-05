@@ -118,5 +118,29 @@
     "black": "deshmukh",
     "result": 0.5,
     "round": 5
+  },
+  {
+    "white": "zhujiner",
+    "black": "muzychuk",
+    "result": 0.0,
+    "round": 6
+  },
+  {
+    "white": "tanzhongyi",
+    "black": "goryachkina",
+    "result": 0.5,
+    "round": 6
+  },
+  {
+    "white": "lagno",
+    "black": "vaishali",
+    "result": 0.0,
+    "round": 6
+  },
+  {
+    "white": "assaubayeva",
+    "black": "deshmukh",
+    "result": 0.0,
+    "round": 6
   }
 ]
