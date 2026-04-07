@@ -118,5 +118,77 @@
     "black": "deshmukh",
     "result": 0.5,
     "round": 5
+  },
+  {
+    "white": "zhujiner",
+    "black": "muzychuk",
+    "result": 0.0,
+    "round": 6
+  },
+  {
+    "white": "tanzhongyi",
+    "black": "goryachkina",
+    "result": 0.5,
+    "round": 6
+  },
+  {
+    "white": "lagno",
+    "black": "vaishali",
+    "result": 0.0,
+    "round": 6
+  },
+  {
+    "white": "assaubayeva",
+    "black": "deshmukh",
+    "result": 0.0,
+    "round": 6
+  },
+  {
+    "white": "muzychuk",
+    "black": "assaubayeva",
+    "result": 0.5,
+    "round": 7
+  },
+  {
+    "white": "vaishali",
+    "black": "tanzhongyi",
+    "result": 1.0,
+    "round": 7
+  },
+  {
+    "white": "lagno",
+    "black": "deshmukh",
+    "result": 0.5,
+    "round": 7
+  },
+  {
+    "white": "goryachkina",
+    "black": "zhujiner",
+    "result": 0.5,
+    "round": 7
+  },
+  {
+    "white": "assaubayeva",
+    "black": "vaishali",
+    "result": 0.5,
+    "round": 8
+  },
+  {
+    "white": "lagno",
+    "black": "goryachkina",
+    "result": 1.0,
+    "round": 8
+  },
+  {
+    "white": "tanzhongyi",
+    "black": "zhujiner",
+    "result": 0.0,
+    "round": 8
+  },
+  {
+    "white": "deshmukh",
+    "black": "muzychuk",
+    "result": 1.0,
+    "round": 8
   }
 ]
