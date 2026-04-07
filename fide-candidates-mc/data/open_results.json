@@ -166,5 +166,29 @@
     "black": "bluebaum",
     "result": 0.5,
     "round": 7
+  },
+  {
+    "white": "esipenko",
+    "black": "sindarov",
+    "result": 0.5,
+    "round": 8
+  },
+  {
+    "white": "weiyi",
+    "black": "bluebaum",
+    "result": 0.5,
+    "round": 8
+  },
+  {
+    "white": "giri",
+    "black": "pragg",
+    "result": 1.0,
+    "round": 8
+  },
+  {
+    "white": "nakamura",
+    "black": "caruana",
+    "result": 1.0,
+    "round": 8
   }
 ]
