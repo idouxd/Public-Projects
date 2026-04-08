@@ -190,5 +190,29 @@
     "black": "muzychuk",
     "result": 1.0,
     "round": 8
+  },
+  {
+    "white": "goryachkina",
+    "black": "assaubayeva",
+    "result": 0.5,
+    "round": 9
+  },
+  {
+    "white": "muzychuk",
+    "black": "tanzhongyi",
+    "result": 0.5,
+    "round": 9
+  },
+  {
+    "white": "lagno",
+    "black": "zhujiner",
+    "result": 0.0,
+    "round": 9
+  },
+  {
+    "white": "deshmukh",
+    "black": "vaishali",
+    "result": 0.0,
+    "round": 9
   }
 ]
