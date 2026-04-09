@@ -214,5 +214,29 @@
     "black": "pragg",
     "result": 0.5,
     "round": 9
+  },
+  {
+    "white": "esipenko",
+    "black": "bluebaum",
+    "result": 0.5,
+    "round": 10
+  },
+  {
+    "white": "sindarov",
+    "black": "pragg",
+    "result": 1.0,
+    "round": 10
+  },
+  {
+    "white": "weiyi",
+    "black": "caruana",
+    "result": 0.0,
+    "round": 10
+  },
+  {
+    "white": "giri",
+    "black": "nakamura",
+    "result": 0.5,
+    "round": 10
   }
 ]
