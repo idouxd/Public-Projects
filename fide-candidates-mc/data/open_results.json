@@ -262,5 +262,77 @@
     "black": "bluebaum",
     "result": 0.5,
     "round": 11
+  },
+  {
+    "white": "sindarov",
+    "black": "nakamura",
+    "result": 0.5,
+    "round": 12
+  },
+  {
+    "white": "weiyi",
+    "black": "giri",
+    "result": 0.5,
+    "round": 12
+  },
+  {
+    "white": "bluebaum",
+    "black": "caruana",
+    "result": 0.5,
+    "round": 12
+  },
+  {
+    "white": "esipenko",
+    "black": "pragg",
+    "result": 0.5,
+    "round": 12
+  },
+  {
+    "white": "caruana",
+    "black": "pragg",
+    "result": 0.5,
+    "round": 13
+  },
+  {
+    "white": "sindarov",
+    "black": "weiyi",
+    "result": 0.5,
+    "round": 13
+  },
+  {
+    "white": "bluebaum",
+    "black": "giri",
+    "result": 0.0,
+    "round": 13
+  },
+  {
+    "white": "esipenko",
+    "black": "nakamura",
+    "result": 0.5,
+    "round": 13
+  },
+  {
+    "white": "sindarov",
+    "black": "bluebaum",
+    "result": 0.5,
+    "round": 14
+  },
+  {
+    "white": "esipenko",
+    "black": "weiyi",
+    "result": 0.0,
+    "round": 14
+  },
+  {
+    "white": "giri",
+    "black": "caruana",
+    "result": 0.0,
+    "round": 14
+  },
+  {
+    "white": "pragg",
+    "black": "nakamura",
+    "result": 0.5,
+    "round": 14
   }
 ]
